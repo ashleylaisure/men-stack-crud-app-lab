@@ -1,0 +1,23 @@
+<!-- views/music/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Music Playlist</title>
+    </head>
+    <body>
+        <h1>Music Playlist</h1>
+
+        <ul>
+            <% music.forEach(music => { %>
+                <li>
+                    <a href="/music/<%=music._id %>"><%=music.song%></a>
+                </li>
+            <% }); %>
+        </ul>
+
+        <a href="/music/new">And Music</a>
+    </body>
+</html>

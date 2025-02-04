@@ -1,0 +1,23 @@
+<!-- views/music/show.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= music.name %></title>
+    </head>
+    <body>
+        <h1><%=music.song%><h1>
+        <h3>BY: <%=music.artist%></h3>
+        <div>
+            <p>Genre: <%=music.genre %> </p>
+        </div>
+    
+        <div>
+            <p>Best when feeling: <%=music.feeling %> </p>
+        </div>
+
+        <a href="/music/">Back to Music</a>
+    </body>
+</html>

@@ -20,9 +20,16 @@ const Music = require("./models/music.js");
 app.use(express.urlencoded({ extended: false }));
 
 // =================================  INDUCES ROUTES  ==========================
-// ===== I. INDEX =====
+// ===== H. HOME =====
 app.get('/', async (req, res) => {
-    res.render('index.ejs')
+    res.render('home.ejs')
+});
+
+
+// ===== I. INDEX =====
+app.get('/music', async (req, res) => {
+    const allMusic = await Music.find()
+    res.render("music/index.ejs", { music : allMusic});
 });
 
 // ===== N. NEW =======
@@ -37,11 +44,15 @@ app.post('/music', async (req, res) => {
     await Music.create(req.body);
 
     console.log(req.body);
-    res.redirect('/music/new');
+    res.redirect('/music/');
 });
 // ===== E. EDIT ======
 // ===== S. SHOW ======
+app.get("/music/:musicId", async (req, res) => {
+    const foundMusic = await Music.findById(req.params.musicId);
 
+    res.render("music/show.ejs", {music : foundMusic});
+});
 
 
 
