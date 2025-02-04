@@ -18,6 +18,12 @@
             <p>Best when feeling: <%=music.feeling %> </p>
         </div>
 
+        <form action="/music/<%=music._id%>?_method=DELETE" method="POST">
+            <button type="submit">Delete <%=music.song%></button>
+        </form>
+
+        <a href="/music/<%=music._id%>/edit">Edit <%=music.song%> </a>
+
         <a href="/music/">Back to Music</a>
     </body>
 </html>

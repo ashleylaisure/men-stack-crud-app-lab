@@ -4,6 +4,9 @@ const app = express();
 
 const mongoose = require('mongoose');
 
+const methodOverride = require('method-override');
+const morgan = require('morgan');
+
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -18,6 +21,9 @@ mongoose.connection.on('connected', () => {
 const Music = require("./models/music.js");
 
 app.use(express.urlencoded({ extended: false }));
+
+app.use(methodOverride('_method'));
+app.use(morgan('dev'));
 
 // =================================  INDUCES ROUTES  ==========================
 // ===== H. HOME =====
@@ -38,7 +44,17 @@ app.get('/music/new', (req, res) => {
 });
 
 // ===== D. DELETE ====
+app.delete('/music/:musicId', async (req, res) => {
+    await Music.findByIdAndDelete(req.params.musicId);
+    res.redirect('/music/');
+});
+
 // ===== U. UPDATE ====
+app.put("/music/:musicId", async (req, res) => {
+    await Music.findByIdAndUpdate(req.params.musicId, req.body);
+    
+    res.redirect(`/music/${req.params.musicId}`);
+})
 // ===== C. CREATE ====
 app.post('/music', async (req, res) => {
     await Music.create(req.body);
@@ -47,6 +63,12 @@ app.post('/music', async (req, res) => {
     res.redirect('/music/');
 });
 // ===== E. EDIT ======
+app.get('/music/:musicId/edit', async (req, res) => {
+    const foundMusic = await Music.findById(req.params.musicId);
+
+    res.render("music/edit.ejs", {music : foundMusic});
+});
+
 // ===== S. SHOW ======
 app.get("/music/:musicId", async (req, res) => {
     const foundMusic = await Music.findById(req.params.musicId);

@@ -1,0 +1,65 @@
+<!-- views/music/edit.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Edit <%= music.name %></title>
+    </head>
+
+    <body>
+        <h1>Edit <%= music.name %></h1>
+
+        <form action="/music/<%=music._id %>?_method=PUT" method="POST">
+
+            <div>
+                <label for="artist">Artist:</label>
+                <input type="text" name="artist" id="artist" value="<%=music.artist %>"/>
+            </div>
+
+            <div>
+                <label for="song">Song:</label>
+                <input type="text" name="song" id="song" value="<%=music.song %>"/>
+            </div>
+
+            <div>
+                <label for="genre">Genre:</label>
+                <select name="genre" id="genre" value="<%=music.genre %>">
+                    <option value="hipHop">Hip-Hop</option>
+                    <option value="rap">Rap</option>
+                    <option value="rock">Rock</option>
+                    <option value="country">Country</option>
+                    <option value="electronic">Electronic</option>
+                    <option value="latin">Latin</option>
+                    <option value="kpop">K-pop</option>
+                    <option value="rnb">R&B</option>
+                    <option value="indie">Indie</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="feeling">I Listen to this when I'm feeling:</label>
+                <select name="feeling" id="feeling" value="<%=music.feeling %>">
+                    <option value="groovy">Groovy</option>
+                    <option value="silly">Silly</option>
+                    <option value="sexy">Sexy</option>
+                    <option value="angry">Angry</option>
+                    <option value="motivated">Motivated</option>
+                    <option value="blue">Blue</option>
+                    <option value="hopeful">Hopeful</option>
+                    <option value="crushed">Crushed</option>
+                    <option value="fisty">Fisty</option>
+                    <option value="undefinable">Undefinable</option>
+                </select>
+            </div>
+
+            <button type="submit">Update Music</button>
+
+        </form>
+
+        <a href="/music">Back to Playlist</a>
+    </body>  
+    
+</html>
