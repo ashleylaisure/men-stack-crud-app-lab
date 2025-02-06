@@ -5,6 +5,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/stylesheets/style.css" />
         <title>Edit <%= music.name %></title>
     </head>
 
@@ -15,17 +16,17 @@
 
             <div>
                 <label for="artist">Artist:</label>
-                <input type="text" name="artist" id="artist" value="<%=music.artist %>"/>
+                <input type="text" class="input-field" name="artist" id="artist" value="<%=music.artist %>"/>
             </div>
 
             <div>
                 <label for="song">Song:</label>
-                <input type="text" name="song" id="song" value="<%=music.song %>"/>
+                <input type="text" class="input-field" name="song" id="song" value="<%=music.song %>"/>
             </div>
 
             <div>
                 <label for="genre">Genre:</label>
-                <select name="genre" id="genre" value="<%=music.genre %>">
+                <select name="genre" class="input-field" id="genre" value="<%=music.genre %>">
                     <option value="hipHop">Hip-Hop</option>
                     <option value="rap">Rap</option>
                     <option value="rock">Rock</option>
@@ -41,7 +42,7 @@
 
             <div>
                 <label for="feeling">I Listen to this when I'm feeling:</label>
-                <select name="feeling" id="feeling" value="<%=music.feeling %>">
+                <select name="feeling" class="input-field" id="feeling" value="<%=music.feeling %>">
                     <option value="groovy">Groovy</option>
                     <option value="silly">Silly</option>
                     <option value="sexy">Sexy</option>
@@ -59,7 +60,10 @@
 
         </form>
 
-        <a href="/music">Back to Playlist</a>
+        <a class="music-index-link" href="/music">
+            <div class="music-index-text">Back to Playlist</div>
+        </a>
+
     </body>  
     
 </html>

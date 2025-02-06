@@ -5,19 +5,22 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/stylesheets/style.css" />
         <title>Music Playlist</title>
     </head>
     <body>
-        <h1>Music Playlist</h1>
+        <div class="index-header">
+            <h1>Music Playlist</h1>
+        </div>
 
         <ul>
             <% music.forEach(music => { %>
                 <li>
-                    <a href="/music/<%=music._id %>"><%=music.song%></a>
+                    <a class="music-cards" href="/music/<%=music._id %>"><%=music.song%></a>
                 </li>
             <% }); %>
         </ul>
 
-        <a href="/music/new">And Music</a>
+        <a class="add-music" href="/music/new">And Music</a>
     </body>
 </html>

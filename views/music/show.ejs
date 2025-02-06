@@ -5,25 +5,37 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= music.name %></title>
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+        <title><%= music.name %></title>
     </head>
     <body>
-        <h1><%=music.song%><h1>
-        <h3>BY: <%=music.artist%></h3>
-        <div>
-            <p>Genre: <%=music.genre %> </p>
+        <div class="music-details">
+            <h1><%=music.song%><div>
+            <h3>BY: <%=music.artist%></h3>
+            <div>
+                <p>Genre: <%=music.genre %> </p>
+            </div>
+        
+            <div>
+                <p>Best when feeling: <%=music.feeling %> </p>
+            </div>
+
+
+            <div class="music-actions">
+                <form class="delete-form" action="/music/<%=music._id%>?_method=DELETE" method="POST">
+                    <button class="delete-button" type="submit">Delete <%=music.song%></button>
+                </form>
+
+                <a class="edit-link" href="/music/<%=music._id%>/edit">
+                    <div class="edit-text">Edit <%=music.song%></div>
+                </a>
+            </div>
+
         </div>
-    
-        <div>
-            <p>Best when feeling: <%=music.feeling %> </p>
-        </div>
 
-        <form action="/music/<%=music._id%>?_method=DELETE" method="POST">
-            <button type="submit">Delete <%=music.song%></button>
-        </form>
-
-        <a href="/music/<%=music._id%>/edit">Edit <%=music.song%> </a>
-
-        <a href="/music/">Back to Music</a>
+        <a class="music-index-link" href="/music">
+            <div class="music-index-text">Back to Playlist</div>
+        </a>
+        
     </body>
 </html>

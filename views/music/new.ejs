@@ -5,6 +5,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/stylesheets/style.css" />
         <title>Add New Music</title>
     </head>
 
@@ -13,19 +14,19 @@
 
         <form action="/music" method="POST">
 
-            <div>
+            <div class="form-inputs">
                 <label for="artist">Artist:</label>
-                <input type="text" name="artist" id="artist"/>
+                <input type="text" class="input-field" name="artist" id="artist"/>
             </div>
 
-            <div>
+            <div class="form-inputs">
                 <label for="song">Song:</label>
-                <input type="text" name="song" id="song"/>
+                <input type="text" class="input-field" name="song" id="song"/>
             </div>
 
-            <div>
+            <div class="form-inputs">
                 <label for="genre">Genre:</label>
-                <select name="genre" id="genre" >
+                <select name="genre" class="input-field" id="genre" >
                     <option value="hipHop">Hip-Hop</option>
                     <option value="rap">Rap</option>
                     <option value="rock">Rock</option>
@@ -39,9 +40,9 @@
                 </select>
             </div>
 
-            <div>
+            <div class="form-inputs">
                 <label for="feeling">I Listen to this when I'm feeling:</label>
-                <select name="feeling" id="feeling" >
+                <select name="feeling" class="input-field" id="feeling" >
                     <option value="groovy">Groovy</option>
                     <option value="silly">Silly</option>
                     <option value="sexy">Sexy</option>
@@ -59,7 +60,9 @@
 
         </form>
 
-        <a href="/music">Back to Playlist</a>
+        <a class="music-index-link" href="/music">
+            <div class="music-index-text">Back to Playlist</div>
+        </a>
     </body>  
     
 </html>

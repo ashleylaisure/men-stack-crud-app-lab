@@ -7,6 +7,8 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
 
+const path = require("path");
+
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -24,6 +26,8 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
+
+app.use(express.static(path.join(__dirname, "public")));
 
 // =================================  INDUCES ROUTES  ==========================
 // ===== H. HOME =====
