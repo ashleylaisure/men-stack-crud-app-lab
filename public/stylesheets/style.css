@@ -99,6 +99,10 @@ button:active {
 }
 
 /* =============== SHOW PAGE =============== */
+.music-details {
+    width: 50%;
+    height: 50%;
+}
 .music-actions {
     display: flex;
     flex-direction: row;
@@ -158,10 +162,6 @@ button:active {
 
 
 /* =============== /music - INDEX =============== */
-.music-details {
-    width: 70%;
-    height: 990%;
-}
 
 .index-header {
     display: flex;
