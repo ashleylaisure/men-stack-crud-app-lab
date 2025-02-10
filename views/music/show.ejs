@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="/stylesheets/style.css" />
         <title><%= music.name %></title>
     </head>
+
     <body>
         <div class="music-details">
             <h1><%=music.song%><div>
@@ -19,18 +20,16 @@
             <div>
                 <p>Best when feeling: <%=music.feeling %> </p>
             </div>
+        </div>
 
+        <div class="music-actions">
+            <form class="delete-form" action="/music/<%=music._id%>?_method=DELETE" method="POST">
+                <button class="delete-button" type="submit">Delete <%=music.song%></button>
+            </form>
 
-            <div class="music-actions">
-                <form class="delete-form" action="/music/<%=music._id%>?_method=DELETE" method="POST">
-                    <button class="delete-button" type="submit">Delete <%=music.song%></button>
-                </form>
-
-                <a class="edit-link" href="/music/<%=music._id%>/edit">
-                    <div class="edit-text">Edit <%=music.song%></div>
-                </a>
-            </div>
-
+            <a class="edit-link" href="/music/<%=music._id%>/edit">
+                <div class="edit-text">Edit <%=music.song%></div>
+            </a>
         </div>
 
         <a class="music-index-link" href="/music">

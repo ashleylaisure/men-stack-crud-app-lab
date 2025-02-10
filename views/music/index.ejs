@@ -17,7 +17,9 @@
             <% music.forEach(music => { %>
                 <li>
                     <a class="music-cards" href="/music/<%=music._id %>"><%=music.song%></a>
+                    <img class="music-img" src="/assets/musical-note.png" alt="music note" />
                 </li>
+                
             <% }); %>
         </ul>
 
